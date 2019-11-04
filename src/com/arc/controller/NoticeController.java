@@ -58,24 +58,38 @@ public class NoticeController extends HttpServlet {
 		
 		//2.
 		String path = "";
+		boolean flag = false;
+		
 		if(url.equals("noticeList")) {
 			path = "./noticeList.jsp";
 			request.setAttribute("board", "noticeList");
+			flag=true;
 		}else if(url.equals("noticeSelect")){
-			String check = request.getParameter("check");
+			//String check = request.getParameter("check");
 			//check 1이라면 select
 			//아니라면 list
-			if(check.equals("1")) {
-				path = "./noticeSelect.jsp";
-				request.setAttribute("select", "noticeSelect");
-			}else {
-				response.sendRedirect("./noticeList.notice");
-			}
+			//if(check.equals("1")) {
+			//	path = "./noticeSelect.jsp";
+			//	request.setAttribute("select", "noticeSelect");
+			//	flag=true;
+			//}else {
+			//	path="./noticeList.notice";
+			//}
 			
 		}
 		
-		RequestDispatcher view = request.getRequestDispatcher(path);
-		view.forward(request, response);
+		if(flag) {
+			RequestDispatcher view = request.getRequestDispatcher(path);
+			view.forward(request, response);
+		}else {
+			response.sendRedirect(path);
+		}
+		
+		
+		
+		
+		
+		
 		/*
 		 * String command = request.getParameter("command");
 		 * 
