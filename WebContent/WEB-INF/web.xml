@@ -10,9 +10,19 @@
  		<servlet-name>notice</servlet-name>
  		<servlet-class>com.arc.controller.NoticeController</servlet-class>
  	</servlet>
- 	
  	<servlet-mapping>
  		<servlet-name>notice</servlet-name>
- 		<url-pattern>/notice/noticeList.do</url-pattern>
+ 		<url-pattern>*.notice</url-pattern>
  	</servlet-mapping>
+ 	
+ 	<servlet>
+ 		<servlet-name>member</servlet-name>
+ 		<servlet-class>com.arc.controller.MemberController</servlet-class>
+ 	</servlet>
+ 	<servlet-mapping>
+ 		<servlet-name>member</servlet-name>
+ 		<url-pattern>/member/memberList.do</url-pattern>
+ 	</servlet-mapping>
+ 	
+ 	
 </web-app>
